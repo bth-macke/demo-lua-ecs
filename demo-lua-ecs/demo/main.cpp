@@ -1,26 +1,44 @@
 #include <iostream>
+#include <string>
 #include <lua\lua.hpp>
+#include "entity.h"
+
+void dumpError(lua_State* L)
+{
+	std::cout << "Lua error: ";
+	if (lua_gettop(L) > 0 && lua_isstring(L, -1))
+	{
+		std::cout << lua_tostring(L, -1) << std::endl;
+	}
+	else
+	{
+		std::cout << "unable to read error." << std::endl;
+	}
+	lua_pop(L, -1);
+}
 
 int main()
 {
 	lua_State* L = luaL_newstate();
 	luaL_openlibs(L);
+	luaopen_entity(L);
 
-	int result = luaL_dostring(L, "print('[Lua] Hello world!')");
+	std::string chunk;
+	while (chunk != "exit") {
+		std::cout << "> ";
+		std::getline(std::cin, chunk);
 
-	if (result != LUA_OK)
-	{
-		printf("[C++] Lua error: ");
+		int result = luaL_dostring(L, chunk.c_str());
 
-		if (lua_isstring(L, -1))
-		{
-			printf("%s", lua_tostring(L, -1));
+		if (chunk == "clear") {
+			system("cls");
 		}
-		else
-		{
-			printf("Unable do read error.\n");
+		else if (chunk == "exit") {
+			std::cout << "Bye bye!" << std::endl;
 		}
-		lua_pop(L, -1);
+		else if (result != LUA_OK) {
+			dumpError(L);
+		}
 	}
 
 	return 0;
