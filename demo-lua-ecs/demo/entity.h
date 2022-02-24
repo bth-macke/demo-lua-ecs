@@ -1,22 +1,17 @@
 #pragma once
 #include "pch.h"
 
-struct EntityScript
+struct NameComponent
 {
-	lua_State* State;
-	std::string ScriptFile;
-	entt::entity EntityHandle;
-	entt::registry& Registry;
-
-	int luaE_getHandle(lua_State* L);
+	std::string Name;
 };
 
 struct ScriptComponent
 {
-	EntityScript* Script;
+	lua_State* State;
+	std::string ScriptFile;
+	entt::entity EntityHandle;
+	entt::registry* Registry;
 };
 
-
-
 void luaopen_entity(lua_State* L, entt::registry& registry);
-

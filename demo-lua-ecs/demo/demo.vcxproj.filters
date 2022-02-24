@@ -26,9 +26,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="script.lua" />
     <None Include="external\include\entt\playerScript.lua" />
-    <None Include="playerScript.lua" />
+    <None Include="script.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entity.h">

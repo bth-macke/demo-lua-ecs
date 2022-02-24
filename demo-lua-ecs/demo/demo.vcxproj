@@ -179,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="external\include\entt\playerScript.lua" />
-    <None Include="playerScript.lua" />
     <None Include="script.lua" />
   </ItemGroup>
   <ItemGroup>
