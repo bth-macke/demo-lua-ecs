@@ -1,11 +1,14 @@
-score = 0
-print("[entity="..me.."] Loaded!")
+e = {}
 
-function OnCreate()
+e.score = 0
+
+function e:OnCreate()
 	print("I'm created!")
 end
 
-function OnUpdate()
-	score = score + 1
-	print("My score is " .. score)
+function e:OnUpdate()
+	self.score = self.score + 1
+	print("My score is " .. self.score)
 end
+
+return e

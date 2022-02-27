@@ -32,10 +32,10 @@ int main()
 
 			view.each([&L](auto script) {
 
-				lua_getglobal(script.State, "OnUpdate");
-				if (lua_isfunction(script.State, -1))
+				lua_getglobal(L, "OnUpdate");
+				if (lua_isfunction(L, -1))
 				{
-					lua_pcall(script.State, 0, 0, 0);
+					lua_pcall(L, 0, 0, 0);
 				}
 			});
 		}

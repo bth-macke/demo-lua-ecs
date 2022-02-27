@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="external\include\entt\playerScript.lua" />
+    <None Include="sandbox.lua" />
     <None Include="script.lua" />
   </ItemGroup>
   <ItemGroup>

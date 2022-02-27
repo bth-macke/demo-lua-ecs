@@ -8,7 +8,6 @@ struct NameComponent
 
 struct ScriptComponent
 {
-	lua_State* State;
 	std::string ScriptFile;
 	entt::entity EntityHandle;
 	entt::registry* Registry;
