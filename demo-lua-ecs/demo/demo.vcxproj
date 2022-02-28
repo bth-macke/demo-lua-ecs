@@ -176,6 +176,7 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\include\entt\playerScript.lua" />
@@ -183,9 +184,11 @@
     <None Include="script.lua" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="components.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="external\include\entt\entt.hpp" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
