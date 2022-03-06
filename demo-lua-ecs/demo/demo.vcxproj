@@ -173,19 +173,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="components.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\include\entt\playerScript.lua" />
+    <None Include="monster.lua" />
     <None Include="sandbox.lua" />
     <None Include="script.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h" />
-    <ClInclude Include="entity.h" />
     <ClInclude Include="external\include\entt\entt.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="scene.h" />

@@ -1,14 +1,12 @@
-e = {}
+local entity = {}
 
-e.score = 0
-
-function e:OnCreate()
-	print("I'm created!")
+function entity:OnAttach()
+	print("[Lua] Hello, my name is " .. (handle or "unknown") .. "!")
+	for k,v in pairs(_ENV) do print(k,v) end
 end
 
-function e:OnUpdate()
-	self.score = self.score + 1
-	print("My score is " .. self.score)
+function entity:OnUpdate()
+	print("[Lua] I'm (" .. (handle or "unknown") .. ") is updating!")
 end
 
-return e
+return entity;
