@@ -156,14 +156,55 @@ int Scene::DestroyEntity(lua_State* L)
 
 int Scene::SetComponent(lua_State* L)
 {
+	Scene& scene = getupvalue_scene(L);
+	std::string type = lua_tostring(L, 2);
+
+	lua_getfield(L, 1, "handle");
+	entt::entity entity = (entt::entity)lua_tointeger(L, -1);
+	lua_pop(L, 1);
+
+	if (type == "name")
+	{
+		NameComponent name = luaC_toname(L, 2);
+		scene.m_registry.emplace_or_replace<NameComponent>(entity, name);
+	}
+	else if (type == "transform")
+	{
+		TransformComponent transform = luaC_totransform(L, 2);
+		scene.m_registry.emplace_or_replace<TransformComponent>(entity, transform);
+	}
+
 	printf("[C++] SetComponent\n");
+
 	return 0;
 }
 
 int Scene::GetComponent(lua_State* L)
 {
+	Scene& scene = getupvalue_scene(L);
+	std::string type = lua_tostring(L, 2);
+
+	lua_getfield(L, 1, "handle");
+	entt::entity entity = (entt::entity)lua_tointeger(L, -1);
+	lua_pop(L, 1);
+
+	if (type == "name")
+	{
+		auto& name = scene.m_registry.get<NameComponent>(entity);
+		luaC_pushname(L, name);
+	}
+	else if (type == "transform")
+	{
+		auto& transform = scene.m_registry.get<TransformComponent>(entity);
+		luaC_pushtransform(L, transform);
+	}
+	else
+	{
+		lua_pushnil(L);
+	}
+
 	printf("[C++] GetComponent\n");
-	return 0;
+	return 1;
 }
 
 //int Scene::SetName(lua_State* L)
