@@ -3,6 +3,7 @@
 class Scene
 {
 	entt::registry m_registry;
+	lua_State* m_luaState;
 
 private:
 
@@ -17,11 +18,11 @@ public:
 
 public:
 
-	// Lua C API
+	// Scene API
 	static int CreateEntity(lua_State* L);
 	static int DestroyEntity(lua_State* L);
 
-	static int SetName(lua_State* L);
-	static int SetTransform(lua_State* L);
-	static int SetScript(lua_State* L);
+	// Entity API
+	static int SetComponent(lua_State* L);
+	static int GetComponent(lua_State* L);
 };

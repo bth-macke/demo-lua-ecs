@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "components.h"
 
 void luaC_pushname(lua_State* L, const NameComponent& component)

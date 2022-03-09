@@ -40,7 +40,7 @@ TransformComponent luaC_totransform(lua_State* L, int i);
 struct ScriptComponent
 {
 	std::string ScriptPath;
-	int EnvReference = 0;
+	int LuaEntityRef = 0;
 };
 
 void luaC_pushscript(lua_State* L, const ScriptComponent& component);
