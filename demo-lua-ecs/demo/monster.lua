@@ -2,7 +2,7 @@ local monster = {}
 
 monster.name = "Marcus"
 
-function monster:OnStart()
+function monster:OnCreate()
 	print("Monster created!")
 end
 

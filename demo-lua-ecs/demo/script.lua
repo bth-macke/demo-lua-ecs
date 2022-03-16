@@ -1,12 +1,8 @@
-local entity = {}
-
-function entity:OnAttach()
-	print("[Lua] Hello, my name is " .. (handle or "unknown") .. "!")
-	for k,v in pairs(_ENV) do print(k,v) end
+local function myFunc(message, ...)
+	local args = table.pack(...)
+	for i,v in ipairs(args) do
+		print(message, v)
+	end
 end
 
-function entity:OnUpdate()
-	print("[Lua] I'm (" .. (handle or "unknown") .. ") is updating!")
-end
-
-return entity;
+myFunc("What is this?", 4, "Hello", 5, "oof")
